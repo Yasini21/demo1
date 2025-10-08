@@ -1,0 +1,20 @@
+*{
+    /* text-align: center; */
+}
+    
+
+
+.car{
+    color:cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+.bikes{
+    color:palevioletred;
+    font-family: 'Times New Roman', Times, serif;
+}
+.model{
+    color:chocolate;
+}
+.model1{
+    color:cadetblue;
+}
