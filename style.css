@@ -1,14 +1,17 @@
 *{
     /* text-align: center; */
 }
-    
+ .image{
+    width: 200px;
+    height:20vh;
+ }   
 
 
 .car{
     color:cadetblue;
     font-family: 'Courier New', Courier, monospace;
 }
-.bikes{
+.bike{
     color:palevioletred;
     font-family: 'Times New Roman', Times, serif;
 }
