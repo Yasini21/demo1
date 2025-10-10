@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <style>
+        *{
+            text-align: center;
+            background-image:linear-gradient(to left,pink,lightblue);
+        }
+        
+        #rockButton{
+            background-image: url("https://sihoonathan.github.io/rock-paper-scissors/assets/img/rock.png");
+            width:200px;
+            height:200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 100px;
+        }
+        #paperButton{
+            background-image: url("https://sihoonathan.github.io/rock-paper-scissors/assets/img/paper.png");
+            width:200px;
+            height:200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 100px;
+        }
+        #scissorButton{
+            background-image: url("https://i.pinimg.com/474x/67/eb/fd/67ebfd32e898b4ec3ae4e59ae33832c8.jpg");
+            width:200px;
+            height:200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 100px;
+        }
+        .box h1{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 50px;
+        }
+        .box h3{
+            font-size: 30px;
+            color:red;
+        }
+        .box p{
+            font-size: 40px;
+        }
+        #finalresult{
+            color:green;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="box">
+   
+    <h1><i>Rock Paper Scissor</i></h1>
+    <h3>Click Your Choices:</h3>
+     
+   
+    <div class="container">
+    <button  onclick="play('rock')" id="rockButton"></button>
+    <button  onclick="play('paper')" id="paperButton"></button>
+    <button  onclick="play('scissor')" id="scissorButton"></button>
+    </div>
+
+    <p id="choice">Make Your Move</p>
+    <p id="score">Player:0|Computer:0</p>
+    <p id="finalresult"></p>
+    
+</div>
+
+    <script>
+         let playerScore=0;
+         let computerScore=0;
+         let gameOver=false;
+
+        function play(player){
+            if(gameOver){
+                return;
+            }
+           const choices=['rock','paper','scissor'];
+           let computer=choices[Math.floor(Math.random()*3)];
+           let result='';
+           if(player===computer){
+            result='Its a draw';
+           }else if(player==='rock' && computer==='scissor'||player==='paper'&&computer==='scissor'||player==='scissor'&&computer==='rock'){
+            playerScore++;
+            result='Player wins!';
+
+           }else{
+            computerScore++;
+            result='Computer wins!';
+           }
+           document.getElementById('choice').innerHTML=result;
+           document.getElementById('score').innerHTML=`Player:${playerScore} | Computer:${computerScore}`
+
+           if(playerScore===5||computerScore===5){
+            gameOver=true;
+            let winner=playerScore===5?'You won the game!🥳':'Computer won the game!😔';
+            document.getElementById('finalresult').innerHTML=`<strong>${winner}</strong>`;
+            disableButton();
+           }
+        }
+        function disableButton(){
+            document.getElementById('rockButton').disabled=true;
+             document.getElementById('paperButton').disabled=true;
+              document.getElementById('scissorButton').disabled=true;
+        }
+    </script>
+    
+</body>
+</html>
